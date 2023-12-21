@@ -13,7 +13,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+      <Container component="main" maxWidth="xs" sx={{ mt: 10 }}>
         <Typography component="h1" variant="h5" sx={{ textAlign: "center" }}>
           Calculadora de Combústivel
         </Typography>
