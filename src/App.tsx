@@ -7,8 +7,8 @@ import { calculateFuel } from "./modules/functions/calculateFuel.ts"
 
 function App() {
   const handleFormSubmit = (formData) => {
-    const retornar = calculateFuel(formData);
-    console.log(retornar);
+    const response = calculateFuel(formData);
+    alert(response);
     
   };
 
