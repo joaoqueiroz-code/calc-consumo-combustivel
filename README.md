@@ -20,3 +20,6 @@ Para executar o projeto, execute o seguinte comando:
 
 ```bash
 npm start
+```
+
+É possível verificar o resultado do cálculo no console do navegador.
