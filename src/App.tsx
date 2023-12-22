@@ -1,6 +1,6 @@
 import React from "react";
 import Form from "./components/CalcForm.tsx";
-import theme from "./assets/themes/Main.tsx";
+import theme from "./assets/themes/Main";
 import { ThemeProvider } from '@mui/material/styles';
 import { Container, Typography } from "@mui/material";
 import { calculateFuel } from "./modules/functions/calculateFuel.ts"

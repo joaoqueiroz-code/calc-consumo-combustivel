@@ -15,6 +15,11 @@ const theme = createTheme({
       contrastText: '#000',
     },
   },
+  typography: {
+    fontFamily: 'Museo Sans, sans-serif',
+    fontWeight: 100,
+  },
+
 });
 
 export default theme;
