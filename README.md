@@ -12,3 +12,11 @@ Para instalar as dependências, execute o seguinte comando:
 
 ```bash
 npm install
+```
+
+## Execução
+
+Para executar o projeto, execute o seguinte comando:
+
+```bash
+npm start
