@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Form from "./components/CalcForm.tsx";
-import theme from "./assets/themes/Default.jsx";
+import theme from "./assets/themes/Default.js";
 import { ThemeProvider } from "@mui/material/styles";
 import { Container, Typography } from "@mui/material";
 import Modal from "@mui/material/Modal";
