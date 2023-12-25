@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Form from "./components/CalcForm.tsx";
-import theme from "./assets/themes/Main";
+import theme from "./assets/themes/Default.jsx";
 import { ThemeProvider } from "@mui/material/styles";
 import { Container, Typography } from "@mui/material";
 import Modal from "@mui/material/Modal";
@@ -18,7 +18,6 @@ function App() {
       handleOpen();
     } catch (error) {
       console.error("Erro ao calcular combustível:", error);
-      // Lidar com o erro, se necessário
     }
   };
 

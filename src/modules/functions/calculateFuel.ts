@@ -7,7 +7,6 @@ export async function calculateFuel(data: {
     const { maxLoad, distanceTraveled, averageConsumption } = data;
     const averageWeightPerKm = maxLoad / distanceTraveled;
     const consumptionPerTonPerKm = averageConsumption / averageWeightPerKm;
-    console.log(consumptionPerTonPerKm);
     
     return consumptionPerTonPerKm;
   } catch (err) {

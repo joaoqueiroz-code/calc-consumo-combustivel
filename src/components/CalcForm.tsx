@@ -11,6 +11,15 @@ interface FormData {
   distanceTraveled: number | "";
 }
 
+interface FormErrors {
+  plate?: string;
+  model?: string;
+  tankCapacity?: string;
+  maxLoad?: string;
+  averageConsumption?: string;
+  distanceTraveled?: string;
+}
+
 interface Props {
   onSubmit: (values: FormData, actions: FormikHelpers<FormData>) => void;
 }
@@ -29,9 +38,43 @@ const CalcForm: React.FC<Props> = ({ onSubmit }) => {
     onSubmit(values, actions);
   };
 
+  const validate = (values: FormData) => {
+    const errors: FormErrors = {};
+
+    if (!values.plate) {
+      errors.plate = "Campo obrigatório";
+    }
+
+    if (!values.model) {
+      errors.model = "Campo obrigatório";
+    }
+
+    if (values.tankCapacity === "" || isNaN(values.tankCapacity as number)) {
+      errors.tankCapacity = "Digite um valor numérico";
+    }
+
+    if (values.maxLoad === "" || isNaN(values.maxLoad as number)) {
+      errors.maxLoad = "Digite um valor numérico";
+    }
+
+    if (values.averageConsumption === "" || isNaN(values.averageConsumption as number)) {
+      errors.averageConsumption = "Digite um valor numérico";
+    }
+
+    if (values.distanceTraveled === "" || isNaN(values.distanceTraveled as number)) {
+      errors.distanceTraveled = "Digite um valor numérico";
+    }
+
+    return errors;
+  };
+
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      {({ values, handleChange }) => (
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleSubmit}
+      validate={validate}
+    >
+      {({ values, handleChange, errors }) => (
         <Form>
           <Field
             as={TextField}
@@ -41,6 +84,8 @@ const CalcForm: React.FC<Props> = ({ onSubmit }) => {
             value={values.plate}
             onChange={handleChange}
             margin="normal"
+            error={Boolean(errors.plate)}
+            helperText={errors.plate}
           />
           <Field
             as={TextField}
@@ -50,6 +95,8 @@ const CalcForm: React.FC<Props> = ({ onSubmit }) => {
             value={values.model}
             onChange={handleChange}
             margin="normal"
+            error={Boolean(errors.model)}
+            helperText={errors.model}
           />
           <Field
             as={TextField}
@@ -60,6 +107,8 @@ const CalcForm: React.FC<Props> = ({ onSubmit }) => {
             value={values.tankCapacity}
             onChange={handleChange}
             margin="normal"
+            error={Boolean(errors.tankCapacity)}
+            helperText={errors.tankCapacity}
           />
           <Field
             as={TextField}
@@ -70,6 +119,8 @@ const CalcForm: React.FC<Props> = ({ onSubmit }) => {
             value={values.maxLoad}
             onChange={handleChange}
             margin="normal"
+            error={Boolean(errors.maxLoad)}
+            helperText={errors.maxLoad}
           />
           <Field
             as={TextField}
@@ -80,6 +131,8 @@ const CalcForm: React.FC<Props> = ({ onSubmit }) => {
             value={values.averageConsumption}
             onChange={handleChange}
             margin="normal"
+            error={Boolean(errors.averageConsumption)}
+            helperText={errors.averageConsumption}
           />
           <Field
             as={TextField}
@@ -90,6 +143,8 @@ const CalcForm: React.FC<Props> = ({ onSubmit }) => {
             value={values.distanceTraveled}
             onChange={handleChange}
             margin="normal"
+            error={Boolean(errors.distanceTraveled)}
+            helperText={errors.distanceTraveled}
           />
           <Button
             type="submit"
