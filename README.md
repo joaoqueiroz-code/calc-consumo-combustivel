@@ -1,4 +1,4 @@
-# Projeto React Simples
+# Calculadora de Combústivel
 
 Este é um projeto React simples.
 
